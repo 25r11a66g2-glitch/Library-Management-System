@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>📚 Library Admin Dashboard</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="admin.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+
+        <h2>Welcome, Admin!</h2>
+
+        <p>Manage Your Library Books</p>
+
+
+        <!-- Statistics -->
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Total Books</h3>
+                <p id="totalBooks">4</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Available Books</h3>
+                <p id="availableBooks">3</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Borrowed Books</h3>
+                <p id="borrowedBooks">1</p>
+            </div>
+
+        </div>
+
+
+        <!-- Add Book Form -->
+        <div class="add-book">
+
+            <h2>Add New Book</h2>
+
+            <form id="bookForm">
+
+                <input
+                    type="text"
+                    id="bookName"
+                    placeholder="Enter Book Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="author"
+                    placeholder="Enter Author Name"
+                    required
+                >
+
+                <select id="category" required>
+
+                    <option value="">Select Category</option>
+                    <option value="Programming">Programming</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+
+                </select>
+
+                <select id="status" required>
+
+                    <option value="Available">Available</option>
+                    <option value="Borrowed">Borrowed</option>
+
+                </select>
+
+                <button type="submit">Add Book</button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Book List -->
+        <div class="book-list">
+
+            <h2>Manage Books</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Library Management System</p>
+    </footer>
+
+
+    <script src="../JavaScript/admin.js"></script>
+
+</body>
+
+</html>

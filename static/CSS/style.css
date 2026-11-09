@@ -1,0 +1,264 @@
+/* General Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+}
+
+
+/* Header */
+
+header {
+    background-color: #243b55;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #8ecae6;
+}
+
+
+/* Welcome Section */
+
+.hero {
+    background-color: #dceaf7;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #243b55;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+
+/* Search Box */
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-box input,
+.search-box select {
+    padding: 12px;
+    width: 220px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.search-box button {
+    padding: 12px 25px;
+    background-color: #243b55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #42617f;
+}
+
+
+/* Books Section */
+
+.books {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.books h2 {
+    color: #243b55;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+
+/* Book Cards */
+
+.book-card {
+    background-color: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #ccc;
+    transition: 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+}
+
+.book-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    color: #243b55;
+    margin-bottom: 12px;
+}
+
+.book-card p {
+    margin: 8px 0;
+    color: #555;
+}
+
+
+/* View Details Button */
+
+.details-btn {
+    background-color: #243b55;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.details-btn:hover {
+    background-color: #42617f;
+}
+
+
+/* About Section */
+
+.about {
+    background-color: #dceaf7;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    color: #243b55;
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #243b55;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 8px;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 650px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+}
+/* Book Details Page */
+
+.book-details {
+    padding: 50px 20px;
+    min-height: 450px;
+    text-align: center;
+}
+
+.book-details h2 {
+    color: #243b55;
+    margin-bottom: 30px;
+}
+
+.details-container {
+    background-color: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #ccc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.details-container img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.details-info {
+    text-align: left;
+}
+
+.details-info h3 {
+    color: #243b55;
+    margin-bottom: 20px;
+}
+
+.details-info p {
+    margin-bottom: 15px;
+    color: #555;
+}

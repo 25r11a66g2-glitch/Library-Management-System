@@ -1,0 +1,167 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Books</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #243b55;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            display: block;
+            width: 90%;
+            max-width: 500px;
+            padding: 12px;
+            margin: 0 auto 30px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #book-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .book-card h3 {
+            color: #243b55;
+            margin-bottom: 12px;
+        }
+
+        .book-card p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .available {
+            color: green;
+            font-weight: bold;
+        }
+
+        .borrowed {
+            color: red;
+            font-weight: bold;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #243b55;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📚 Browse Books</h1>
+
+    <input
+        type="text"
+        id="search"
+        class="search-box"
+        placeholder="Search by book name, author or category..."
+    >
+
+    <div id="book-list">
+        Loading books...
+    </div>
+
+    <a href="/student-dashboard" class="back">
+        ← Back to Dashboard
+    </a>
+
+    <script>
+
+        async function loadBooks(search = "") {
+
+            const bookList = document.getElementById("book-list");
+
+            try {
+
+                let url = search
+                    ? `/api/search?q=${encodeURIComponent(search)}`
+                    : "/books";
+
+                const response = await fetch(url);
+                const books = await response.json();
+
+                bookList.innerHTML = "";
+
+                if (!response.ok) {
+                    bookList.textContent = books.error || "Unable to load books.";
+                    return;
+                }
+
+                if (books.length === 0) {
+                    bookList.innerHTML = "<p>No books found.</p>";
+                    return;
+                }
+
+                books.forEach(book => {
+
+                    const card = document.createElement("div");
+                    card.className = "book-card";
+
+                    const title = document.createElement("h3");
+                    title.textContent = book.book_name;
+
+                    const author = document.createElement("p");
+                    author.textContent = "Author: " + book.author;
+
+                    const category = document.createElement("p");
+                    category.textContent = "Category: " + (book.category_name || "Not specified");
+
+                    const status = document.createElement("p");
+                    status.textContent = "Status: " + book.status;
+                    status.className = book.status === "Available" ? "available" : "borrowed";
+
+                    card.append(title, author, category, status);
+                    bookList.appendChild(card);
+
+                });
+
+            } catch (error) {
+                bookList.textContent = "Unable to connect to the server.";
+                console.error(error);
+            }
+        }
+
+        document.getElementById("search").addEventListener("input", function () {
+            loadBooks(this.value);
+        });
+
+        loadBooks();
+
+    </script>
+
+</body>
+</html>
+```

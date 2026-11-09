@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f5fa;
+        }
+
+        header {
+            background: #263b70;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .welcome {
+            text-align: center;
+            margin: 35px 10px;
+        }
+
+        .welcome h2 {
+            color: #263b70;
+            margin-bottom: 10px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #263b70;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #263b70;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .card a:hover {
+            background: #405da0;
+        }
+
+        .logout {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 35px;
+            background: #d9534f;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Library Management System</h1>
+    </header>
+
+    <section class="welcome">
+
+        <h2>Welcome, {{ student_name }}!</h2>
+
+        <p>Welcome to your Student Dashboard.</p>
+
+    </section>
+
+    <section class="dashboard">
+
+        <div class="card">
+            <h3>📚 Browse Books</h3>
+            <p>Explore books available in our library.</p>
+            <a href="/">View Books</a>
+        </div>
+
+        <div class="card">
+            <h3>🔍 Search Books</h3>
+            <p>Find books by title, author or category.</p>
+            <a href="/">Search Now</a>
+        </div>
+
+        <div class="card">
+            <h3>📖 Borrowed Books</h3>
+            <p>View your borrowed books.</p>
+            <a href="#">Coming Soon</a>
+        </div>
+
+        <div class="card">
+            <h3>👤 My Profile</h3>
+            <p>View your student account.</p>
+            <a href="#">Coming Soon</a>
+        </div>
+
+    </section>
+
+    <a href="/logout" class="logout">Logout</a>
+
+</body>
+</html>
